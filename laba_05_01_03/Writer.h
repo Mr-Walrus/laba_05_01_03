@@ -1,10 +1,11 @@
 #pragma once
 #include <string>
+#include "Double_List.h"
 class Writer
 {
 protected:
 	std::string FIO;
-	std::string* works;
+	List <std::string> works;
 public:
 	Writer(std::string FIO);
 

@@ -1,9 +1,10 @@
 #pragma once
 #include "Writer.h"
+#include "Double_List.h"
 class Printing
 {
 private:
-	Writer* writers;
+	List<Writer*> writers;
 public:
 	~Printing();
 

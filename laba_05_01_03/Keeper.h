@@ -3,10 +3,11 @@
 #include <string>
 #include "Printing.h"
 #include "Writer.h"
+#include "Double_List.h"
 class Keeper
 {
 private:
-	Printing* printings;
+	List<Printing*> printings;
 public:
 	~Keeper();
 	void save_to_file(std::string);
