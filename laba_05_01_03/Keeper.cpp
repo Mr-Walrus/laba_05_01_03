@@ -27,7 +27,7 @@ void Keeper::save_to_file(std::string file)
 int Keeper::load_from_file(std::string file)
 {
 	std::ifstream fin(file);
-	if (!fin) return 1;
+	if (!fin) return 0;
 	size_t printings_size;
 	size_t writers_size;
 	size_t num;
@@ -96,7 +96,7 @@ int Keeper::load_from_file(std::string file)
 	}
 
 	fin.close();
-	return 0;
+	return 1;
 }
 
 void Keeper::add_printing()

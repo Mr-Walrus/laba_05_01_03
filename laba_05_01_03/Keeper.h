@@ -1,8 +1,12 @@
 #pragma once
 #include <fstream>
 #include <string>
+#include "Date.h"
 #include "Printing.h"
 #include "Writer.h"
+#include "Poet.h"
+#include "Science_fiction.h"
+#include "Novelist.h"
 #include "Double_List.h"
 class Keeper
 {
