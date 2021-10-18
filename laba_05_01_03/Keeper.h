@@ -20,5 +20,7 @@ public:
 	void add_writer(size_t i_i, Writer* w);
 	void remove_printing(size_t i_i);
 	void remove_writer(size_t i_i, size_t j_j);
+	size_t get_printing_amm();
+	size_t get_writer_amm(size_t i_i);
 	void print_data();
 };

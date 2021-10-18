@@ -118,6 +118,16 @@ void Keeper::remove_writer(size_t i_i, size_t j_j)
 	printings[i_i]->writers.pop(j_j);
 }
 
+size_t Keeper::get_printing_amm()
+{
+	return printings.size();
+}
+
+size_t Keeper::get_writer_amm(size_t i_i)
+{
+	return printings[i_i]->writers.size();
+}
+
 void Keeper::print_data()
 {
 	for (size_t i = 0; i < printings.size(); ++i)
