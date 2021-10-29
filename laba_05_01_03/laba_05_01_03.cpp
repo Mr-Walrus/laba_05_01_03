@@ -18,8 +18,6 @@ int main()
 	SetConsoleOutputCP(1251);
 
 	Keeper kipper;
-	Keeper* a = new Keeper;
-	delete a;
 	int c;
 
 	while (true)
