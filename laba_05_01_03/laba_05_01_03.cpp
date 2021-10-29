@@ -55,8 +55,8 @@ int main()
 					<< (kipper.get_printing_amm() == 1 ? "" : "1 - №")
 					<< (kipper.get_printing_amm() == 1 ? 1 : kipper.get_printing_amm())
 					<< "\n\t->";
-				cin >> num;
-				if (num >= 1 && num <= kipper.get_printing_amm())
+				cin >> num;				
+				try
 				{
 					std::string FIO;
 					int type;
@@ -112,8 +112,10 @@ int main()
 					default: cout << "\tВыбрано недопустимое значение!\n";
 					}
 				}
-				else
+				catch (int)
+				{
 					cout << "\tВыбрано недопустимое значение!\n";
+				}
 			}
 			break; }
 		case 4: {
@@ -130,13 +132,15 @@ int main()
 					<< (kipper.get_printing_amm() == 1 ? 1 : kipper.get_printing_amm())
 					<< "\n\t->";
 				cin >> num;
-				if (num >= 1 && num <= kipper.get_printing_amm())
+				try
 				{
 					kipper.remove_printing(num - 1);
 					cout << "\tДанные успешно удалены\n";
 				}
-				else
+				catch (int)
+				{
 					cout << "\tВыбрано недопустимое значение!\n";
+				}
 			}
 			break; }
 		case 6: {
@@ -150,7 +154,7 @@ int main()
 					<< (kipper.get_printing_amm() == 1 ? 1 : kipper.get_printing_amm())
 					<< "\n\t->";
 				cin >> num1;
-				if (num1 >= 1 && num1 <= kipper.get_printing_amm())
+				try
 				{
 					if (kipper.get_writer_amm(num1-1) == 0)
 						cout << "\tПисатели отсутствуют.\n";
@@ -161,17 +165,14 @@ int main()
 							<< (kipper.get_writer_amm(num1-1) == 1 ? 1 : kipper.get_writer_amm(num1-1))
 							<< "\n\t->";
 						cin >> num2;
-						if (num2 >= 1 && num2 <= kipper.get_writer_amm(num1-1))
-						{
-							kipper.remove_writer(num1 - 1, num2 - 1);
-							cout << "\tДанные успешно удалены\n";
-						}
-						else
-							cout << "\tВыбрано недопустимое значение!\n";
+						kipper.remove_writer(num1 - 1, num2 - 1);
+						cout << "\tДанные успешно удалены\n";
 					}
 				}
-				else
+				catch (int)
+				{
 					cout << "\tВыбрано недопустимое значение!\n";
+				}
 			}
 			break; }
 		case 7: {kipper.save_to_file("save.txt");
