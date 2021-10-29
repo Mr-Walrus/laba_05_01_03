@@ -13,6 +13,7 @@ class Keeper
 private:
 	List<Printing*> printings;
 public:
+	Keeper();
 	~Keeper();
 	void save_to_file(std::string);
 	int  load_from_file(std::string);

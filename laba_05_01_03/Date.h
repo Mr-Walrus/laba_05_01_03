@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 class Date
 {
 private:
@@ -13,6 +14,7 @@ public:
 	size_t get_day();
 	size_t get_month();
 	size_t get_year();
+	std::string to_str();
 
 	friend std::istream& operator>> (std::istream& in, Date& V);
 };

@@ -1,6 +1,15 @@
 #include "Science_fiction.h"
 
-Science_fiction::Science_fiction(std::string FIO, bool film) :Writer(FIO), film(film) {}
+Science_fiction::Science_fiction(std::string FIO, bool film) :Writer(FIO), film(film)
+{
+	std::cout << "Science_fiction(std::string FIO, bool film)\n\tstring FIO: " << FIO << endl
+		<< "\tbool film: " << film << endl;
+}
+
+Science_fiction::~Science_fiction()
+{
+	std::cout << "~Science_fiction()\n";
+}
 
 bool Science_fiction::has_film()
 {

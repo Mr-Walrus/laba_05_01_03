@@ -8,6 +8,7 @@ protected:
 	List <std::string> works;
 public:
 	Writer(std::string FIO);
+	~Writer();
 
 	void set_FIO(std::string FIO);
 	std::string get_FIO();

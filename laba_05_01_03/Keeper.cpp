@@ -1,7 +1,13 @@
 #include "Keeper.h"
 
+Keeper::Keeper()
+{
+	std::cout << "Keeper()\n";
+}
+
 Keeper::~Keeper()
 {
+	std::cout << "~Keeper()\n";
 	if (printings.size())
 		for (size_t i = 0; i < printings.size(); i++)
 			delete printings[i];
@@ -110,12 +116,12 @@ void Keeper::add_writer(size_t i_i, Writer* w)
 
 void Keeper::remove_printing(size_t i_i)
 {
-	printings.pop(i_i);
+	delete printings.pop(i_i);
 }
 
 void Keeper::remove_writer(size_t i_i, size_t j_j)
 {
-	printings[i_i]->writers.pop(j_j);
+	delete printings[i_i]->writers.pop(j_j);
 }
 
 size_t Keeper::get_printing_amm()

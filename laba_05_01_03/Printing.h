@@ -6,6 +6,7 @@ class Printing
 private:
 	List<Writer*> writers;
 public:
+	Printing();
 	~Printing();
 
 	void add_element(Writer* W);

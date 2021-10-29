@@ -1,6 +1,16 @@
 #include "Poet.h"
 
-Poet::Poet(std::string FIO, Date burth, Date death) : Writer(FIO), burth(burth), death(death) {}
+Poet::Poet(std::string FIO, Date burth, Date death) : Writer(FIO), burth(burth), death(death) 
+{
+	std::cout << "Poet(std::string FIO, Date burth, Date death)\n\tstring FIO: " << FIO << endl
+		<< "\tDate burth: " << burth.to_str() << endl
+		<< "\tDate death: " << death.to_str() << endl;
+}
+
+Poet::~Poet()
+{
+	std::cout << "~Poet()\n";
+}
 
 Date Poet::get_burth_date()
 {

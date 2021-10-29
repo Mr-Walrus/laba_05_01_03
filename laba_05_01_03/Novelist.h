@@ -8,6 +8,7 @@ private:
 	std::string biography;
 public:
 	Novelist(std::string FIO, Date burth, Date death, std::string biography);
+	~Novelist();
 	Date get_burth_date();
 	Date get_death_date();
 	std::string get_biography();

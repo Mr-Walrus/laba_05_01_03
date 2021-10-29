@@ -6,6 +6,7 @@ private:
 	bool film = false;
 public:
 	Science_fiction(std::string FIO, bool film);
+	~Science_fiction();
 	bool has_film();
 	void set_film(bool film);
 	virtual std::string get_data() override;

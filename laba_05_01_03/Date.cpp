@@ -26,6 +26,11 @@ size_t Date::get_year()
 	return year;
 }
 
+std::string Date::to_str()
+{
+	return std::to_string(day) + "." + std::to_string(month) + "." + std::to_string(year);
+}
+
 std::istream& operator>>(std::istream& in, Date& V)
 {
 		in >> V.day >> V.month >> V.year;

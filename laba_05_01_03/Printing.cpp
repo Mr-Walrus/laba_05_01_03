@@ -1,7 +1,13 @@
 #include "Printing.h"
 
+Printing::Printing()
+{
+	std::cout << "Printing()\n";
+}
+
 Printing::~Printing()
 {
+	std::cout << "~Printing()\n";
 	if (writers.size())
 		for (size_t i = 0; i < writers.size(); i++)
 			delete writers[i];

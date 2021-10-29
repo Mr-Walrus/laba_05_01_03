@@ -1,6 +1,17 @@
 #include "Novelist.h"
 
-Novelist::Novelist(std::string FIO, Date burth, Date death, std::string biography) : Writer(FIO), burth(burth), death(death), biography(biography) {}
+Novelist::Novelist(std::string FIO, Date burth, Date death, std::string biography) : Writer(FIO), burth(burth), death(death), biography(biography)
+{
+	std::cout << "Novelist(std::string FIO, Date burth, Date death, std::string biography)\n\tstring FIO: " << FIO << endl
+		<< "\tDate burth: " << burth.to_str() << endl
+		<< "\tDate death: " << death.to_str() << endl
+		<< "\tstring biography: " << biography << endl;
+}
+
+Novelist::~Novelist()
+{
+	std::cout << "~Novelist()\n";
+}
 
 Date Novelist::get_burth_date()
 {
