@@ -55,11 +55,11 @@ int main()
 					<< (kipper.get_printing_amm() == 1 ? "" : "1 - №")
 					<< (kipper.get_printing_amm() == 1 ? 1 : kipper.get_printing_amm())
 					<< "\n\t->";
-				cin >> num;				
+				cin >> num;
 				try
 				{
-					std::string FIO;
-					int type;
+					std::string work, FIO;
+					int type, am;
 					cout << "\tВыбирите писателя:\n"
 						<< "\n\t1.Поэт:"
 						<< "\n\t2.Романист"
@@ -77,6 +77,15 @@ int main()
 						cout << "\tВведите дату смерти (дд мм гггг): ";
 						cin >> death;
 						Writer* writer = new Poet(FIO, burth, death);
+						cout << "\tВведите кол-во произведений: ";
+						cin >> am;
+						getline(cin, work);
+						for (size_t i = 0; i < am; i++)
+						{
+							cout << "\tВведите произведение №" << i+1 << ": ";
+							getline(cin, work);
+							writer->add_work(work);
+						}
 						kipper.add_writer(num - 1, writer);
 						cout << "\tПисатель №" << kipper.get_writer_amm(num - 1) << " успешно добавлен\n";
 						break; }
@@ -90,6 +99,15 @@ int main()
 						cin >> f;
 						film = f == 'д' || f == 'Д';
 						Writer* writer = new Science_fiction(FIO, film);
+						cout << "\tВведите кол-во произведений: ";
+						cin >> am;
+						getline(cin, work);
+						for (size_t i = 0; i < am; i++)
+						{
+							cout << "\tВведите произведение №" << i + 1 << ": ";
+							getline(cin, work);
+							writer->add_work(work);
+						}
 						kipper.add_writer(num - 1, writer);
 						cout << "\tПисатель №" << kipper.get_writer_amm(num - 1) << " успешно добавлен\n";
 						break; }
@@ -98,14 +116,23 @@ int main()
 						cout << "\tВведите ФИО: ";
 						getline(cin, FIO);
 						getline(cin, FIO);
-						cout << "\tВведите дату рождения: ";
+						cout << "\tВведите дату рождения (дд мм гггг): ";
 						cin >> burth;
-						cout << "\tВведите дату смерти: ";
+						cout << "\tВведите дату смерти (дд мм гггг): ";
 						cin >> death;
 						cout << "\tВведите биографию: ";
 						getline(cin, biography);
 						getline(cin, biography);
 						Writer* writer = new Novelist(FIO, burth, death, biography);
+						cout << "\tВведите кол-во произведений: ";
+						cin >> am;
+						getline(cin, work);
+						for (size_t i = 0; i < am; i++)
+						{
+							cout << "\tВведите произведение №" << i + 1 << ": ";
+							getline(cin, work);
+							writer->add_work(work);
+						}
 						kipper.add_writer(num - 1, writer);
 						cout << "\tПисатель №" << kipper.get_writer_amm(num - 1) << " успешно добавлен\n";
 						break; }
@@ -156,13 +183,13 @@ int main()
 				cin >> num1;
 				try
 				{
-					if (kipper.get_writer_amm(num1-1) == 0)
+					if (kipper.get_writer_amm(num1 - 1) == 0)
 						cout << "\tПисатели отсутствуют.\n";
 					else
 					{
 						cout << "\tВыбирите писателя. Доступны: №"
-							<< (kipper.get_writer_amm(num1-1) == 1 ? "" : "1 - №")
-							<< (kipper.get_writer_amm(num1-1) == 1 ? 1 : kipper.get_writer_amm(num1-1))
+							<< (kipper.get_writer_amm(num1 - 1) == 1 ? "" : "1 - №")
+							<< (kipper.get_writer_amm(num1 - 1) == 1 ? 1 : kipper.get_writer_amm(num1 - 1))
 							<< "\n\t->";
 						cin >> num2;
 						kipper.remove_writer(num1 - 1, num2 - 1);
@@ -199,6 +226,6 @@ int main()
 Класс Печатное издание (Printing)(Base) хранит книги поэтов, романистов и фантастов.
 	Poet:				ФИО, годы жизни, несколько произведений.
 	Novelist:			ФИО, годы жизни, несколько произведений, краткая биография.
-	Science_fiction:	ФИО, несколько произведений, сняты ли фильмы по книгам.
+	Science_fiction:	ФИО,			 несколько произведений, сняты ли фильмы по книгам.
 
 */

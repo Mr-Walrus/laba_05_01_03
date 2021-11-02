@@ -33,7 +33,7 @@ void Keeper::save_to_file(std::string file)
 int Keeper::load_from_file(std::string file)
 {
 	std::ifstream fin(file);
-	if (!fin) return 0;
+	if (!fin||fin.eof()) return 0;
 	size_t printings_size;
 	size_t writers_size;
 	size_t num;
@@ -42,7 +42,6 @@ int Keeper::load_from_file(std::string file)
 	std::string biography;
 	std::string work;
 	Date burth, death;
-
 	fin >> printings_size;
 	for (size_t i = 0; i < printings_size; i++)
 	{
@@ -50,6 +49,7 @@ int Keeper::load_from_file(std::string file)
 		Printing* temp = new Printing;
 		for (size_t j = 0; j < writers_size; j++)
 		{
+			if (fin.eof()) return 0;
 			fin >> type;
 			getline(fin, FIO);
 			getline(fin, FIO);
